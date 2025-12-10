@@ -22,7 +22,7 @@ export default function SupplierPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:5000/vendors")
+    fetch("https://storer-xd46.onrender.com/vendors")
       .then((res) => res.json())
       .then((data) => {
         console.log("vendors payload:", data);

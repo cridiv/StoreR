@@ -10,7 +10,7 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
   const [isLoading, setIsLoading] = useState(false);
 
   const handleGoogleAuth = () => {
-    window.location.href = 'http://localhost:5000/auth/google';
+    window.location.href = 'https://storer-xd46.onrender.com/auth/google';
   };
 
   if (!isOpen) return null;

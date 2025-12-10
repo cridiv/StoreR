@@ -40,7 +40,7 @@ export default function CheckoutButton({
         try {
           // 🔥 BACKEND VERIFICATION
           const verify = await axios.post(
-            "http://localhost:5000/paystack/verify",
+            "https://storer-xd46.onrender.com/paystack/verify",
             {
               reference: res.reference,
               email,

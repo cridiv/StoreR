@@ -65,7 +65,7 @@ const AccountModal: React.FC<AccountModalProps> = ({ isOpen, onClose }) => {
           return;
         }
 
-        const response = await fetch("http://localhost:5000/auth/me", {
+        const response = await fetch("https://storer-xd46.onrender.com/auth/me", {
           headers: {
             Authorization: `Bearer ${token}`,
           },

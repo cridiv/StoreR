@@ -71,7 +71,7 @@ export default function SupplierDetails() {
       return;
     }
 
-    fetch(`http://localhost:5000/vendors/${supplierId}`)
+    fetch(`https://storer-xd46.onrender.com/vendors/${supplierId}`)
       .then((res) => {
         if (!res.ok) {
           throw new Error('Vendor not found');
