@@ -1,0 +1,138 @@
+[
+  {
+    "name": "Cream",
+    "category": "Dior/Belts/Loafers",
+    "avg_price": "$30",
+    "rating": "4.5",
+    "response_time": "<2 hrs",
+    "total_products": "100+",
+    "picture": "https://photo.yupoo.com/1932084671/880fa57d/2de3600e.jpg"
+  },
+  {
+    "name": "AJ",
+    "category": "Jersey",
+    "avg_price": "$15",
+    "rating": "4.5",
+    "response_time": "<2 hrs",
+    "total_products": "100+",
+    "picture": "https://photo.yupoo.com/aaaajersey/6934ce97/be7ac71c.jpg"
+  },
+  {
+    "name": "Akding",
+    "category": "Sweats",
+    "avg_price": "$12-40",
+    "ratings": "4.5",
+    "res_time": "<2 hrs",
+    "tot_prod": "100+",
+    "picture": "https://photo.yupoo.com/akdingji/c05d1621/52bd201c.jpg"
+  },
+  {
+    "name": "Godmall",
+    "category": "Luxury Bags",
+    "avg_price": "$25",
+    "ratings": "4.5",
+    "res_time": "<3 hrs",
+    "tot_prod": "100+",
+    "picture": "https://photo.yupoo.com/godmall/75d77334/673910d0.jpg"
+  },
+  {
+    "name": "Wave",
+    "category": "Cap/Beanies",
+    "avg_price": "$12",
+    "ratings": "4.0",
+    "res_time": "<3 hrs",
+    "tot_prod": "100+",
+    "picture": "https://photo.yupoo.com/ogwave/7b6c07d3/3fb5e249.jpeg"
+  },
+  {
+    "name": "Pika",
+    "category": "Hellstar/Sp5der",
+    "avg_price": "$30-40",
+    "ratings": "4.5",
+    "res_time": "<2 hrs",
+    "tot_prod": "100+",
+    "picture": "https://photo.yupoo.com/pikachushop/b6ceca2c/563300fa.jpg"
+  },
+  {
+    "name": "Repsun",
+    "category": "Dior/Belts/Loafers",
+    "avg_price": "$30",
+    "ratings": "4.5",
+    "res_time": "<2 hrs",
+    "tot_prod": "100+",
+    "picture": "https://photo.yupoo.com/repsunofficial/4c3c36d1/03929847.jpeg"
+  },
+  {
+    "name": "SS",
+    "category": "jewelry",
+    "avg_price": "$50-300",
+    "ratings": "4.5",
+    "res_time": "<3 hrs",
+    "tot_prod": "100+",
+    "picture": "https://photo.yupoo.com/survivalsource/f90bf1d0/789838b1.png"
+  },
+  {
+    "name": "Thunder",
+    "category": "Denim",
+    "avg_price": "$50",
+    "ratings": "4.5",
+    "res_time": "<2 hrs",
+    "tot_prod": "100+",
+    "picture": "https://photo.yupoo.com/thethunder/88242e26/633033c1.jpeg"
+  },
+  {
+    "name": "Topk8",
+    "category": "Belts",
+    "avg_price": "$30",
+    "ratings": "4.5",
+    "res_time": "<3 hrs",
+    "tot_prod": "100+",
+    "picture": "https://photo.yupoo.com/topk8/91651399/e3b1c850.jpg"
+  },
+  {
+    "name": "WT",
+    "category": "Nike",
+    "avg_price": "$30",
+    "ratings": "4.5",
+    "res_time": "<2 hrs",
+    "tot_prod": "200+",
+    "picture": "https://photo.yupoo.com/wwfake100/184e9f63/d0487fbf.jpeg"
+  },
+  {
+    "name": "Zozo",
+    "category": "Glasses",
+    "avg_price": "$__",
+    "ratings": "4.0",
+    "res_time": "<3 hrs",
+    "tot_prod": "100+",
+    "picture": "https://photo.yupoo.com/zozo-eyewear/c76c0fee/e657f3c6.jpg"
+  },
+  {
+    "name": "Jaziah",
+    "category": "Cologne",
+    "avg_price": "$80",
+    "ratings": "5.0",
+    "res_time": "<30 mins",
+    "tot_prod": "30",
+    "picture": "https://res.cloudinary.com/ddg3vwmup/image/upload/v1764897797/jaziah_arxety.jpg"
+  },
+  {
+    "name": "All Suppliers Bundle",
+    "category": "All",
+    "avg_price": "$__",
+    "ratings": "5.0",
+    "res_time": "<2 hrs",
+    "tot_prod": "10+",
+    "price": "$30",
+    "picture": "https://res.cloudinary.com/ddg3vwmup/image/upload/v1764905355/Untitled_design_2_izdeh1.png"
+  },
+  {
+    "name": "HIC",
+    "category": "airpods",
+    "avg_price": "$15-20",
+    "ratings": "4.5",
+    "res_time": "<2 hrs",
+    "tot_prod": "100+",
+    "picture": "https://si.geilicdn.com/pcitem1681028290-09e90000019090e6e49b0a20e273_393_405.jpg.webp"
+  }
+]

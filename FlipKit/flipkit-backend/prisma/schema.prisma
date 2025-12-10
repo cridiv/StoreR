@@ -1,0 +1,59 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(uuid())
+  googleId  String?   @unique
+  email     String?  @unique
+  firstName String?
+  lastName  String?
+  picture   String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Vendor {
+  id        String   @id @default(uuid())
+  name      String
+  contact   String?
+  picture   String?
+  category  String?
+  avg_price String?
+  createdAt DateTime @default(now())
+  ratings   String?
+  res_time  String?
+  tot_prod  String?
+  url       String?
+  price     String?
+}
+
+model Order {
+  id               String        @id @default(cuid())
+  email            String
+  username         String?
+  amount           Decimal       @db.Decimal(12, 2)
+  currency         String        @default("NGN")
+  paymentReference String        @unique
+  paymentStatus    PaymentStatus @default(PENDING)
+  gatewayResponse  String?
+  paidAt           DateTime?
+  metadata         Json?
+  createdAt        DateTime      @default(now())
+  updatedAt        DateTime      @updatedAt
+
+  @@index([email])
+  @@index([paymentReference])
+}
+
+enum PaymentStatus {
+  PENDING
+  PAID
+  FAILED
+  REFUNDED
+}
