@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import CheckoutButton from "../../components/Payment";
+import { useExchangeRate } from "@/hooks/useExchangeRate";
 
 /* Icons */
 const ArrowLeftIcon = () => (
@@ -64,8 +65,8 @@ export default function SupplierDetails() {
   const [username, setUsername] = useState<string>("");
   const [agreedToTerms, setAgreedToTerms] = useState<boolean>(false);
   const [cartCount] = useState<number>(0);
-  const [exchangeRate, setExchangeRate] = useState<number>(1500);
 
+  const exchangeRate = useExchangeRate(1500);
   useEffect(() => {
     if (!supplierId) {
       return;
@@ -86,17 +87,6 @@ export default function SupplierDetails() {
       .catch((err) => {
         console.error(err);
         setLoading(false);
-      });
-
-    fetch('https://api.exchangerate-api.com/v4/latest/USD')
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.rates && data.rates.NGN) {
-          setExchangeRate(data.rates.NGN);
-        }
-      })
-      .catch((err) => {
-        console.error('Exchange rate fetch failed:', err);
       });
   }, [supplierId]);
 
