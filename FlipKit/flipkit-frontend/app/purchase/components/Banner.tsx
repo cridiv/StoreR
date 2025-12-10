@@ -1,8 +1,6 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import "@fontsource/quantico/700.css";
-
 
 
 const ShoppingCartIcon: React.FC<{ count?: number } & React.HTMLAttributes<HTMLDivElement>> = ({ count, className, style, ...rest }) => (
