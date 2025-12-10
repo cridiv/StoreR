@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { X, Chrome, ShieldCheck, Zap, ArrowRight, Loader2 } from 'lucide-react';
 
 type AuthModalProps = {
@@ -9,9 +9,13 @@ type AuthModalProps = {
 export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleGoogleAuth = () => {
-    window.location.href = 'https://storer-xd46.onrender.com/auth/google';
-  };
+  useEffect(() => {
+    const handleGoogleAuth = () => {
+      window.location.href = 'https://storer-xd46.onrender.com/auth/google';
+    };
+
+    (window as any).handleGoogleAuth = handleGoogleAuth;
+  }, []);
 
   if (!isOpen) return null;
 
@@ -97,7 +101,7 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
 
             {/* Google Sign In Button */}
             <button
-              onClick={handleGoogleAuth}
+              onClick={(window as any).handleGoogleAuth}
               disabled={isLoading}
               className="group relative w-full bg-white hover:bg-gray-50 text-black font-bold py-4 px-6 rounded-xl transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed overflow-hidden shadow-lg hover:shadow-xl"
             >
