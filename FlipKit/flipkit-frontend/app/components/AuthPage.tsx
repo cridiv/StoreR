@@ -29,29 +29,30 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
       />
 
       {/* Modal */}
-      <div className="fixed inset-0 z-50 flex min-h-screen items-center p-4 animate-scale-in">
-        <div className="absolute top-1/2 left-1/2 w-full max-w-md -translate-x-1/2 -translate-y-1/2 bg-black border border-gray-800 rounded-2xl shadow-2xl overflow-hidden">
+      <div className="fixed inset-0 z-50 flex min-h-screen items-center justify-center p-4 sm:p-6 animate-scale-in">
+        <div className="relative w-full max-w-md bg-black border border-gray-800 rounded-2xl shadow-2xl overflow-hidden max-h-[calc(100vh-2rem)] sm:max-h-[calc(100vh-3rem)] overflow-y-auto">
           {/* Animated Background Effects */}
           <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-[#1E1B4B]/30 rounded-full blur-3xl animate-pulse-slow" />
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#2D1B69]/20 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '1s' }} />
+            <div className="absolute top-0 right-0 w-48 h-48 sm:w-64 sm:h-64 bg-[#1E1B4B]/30 rounded-full blur-3xl animate-pulse-slow" />
+            <div className="absolute bottom-0 left-0 w-48 h-48 sm:w-64 sm:h-64 bg-[#2D1B69]/20 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '1s' }} />
           </div>
+          
           {/* Close Button */}
           <button
             onClick={() => !isLoading && onClose()}
             disabled={isLoading}
-            className="absolute top-4 right-4 z-10 p-2 text-gray-400 hover:text-white hover:bg-gray-800/50 rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+            className="absolute top-3 right-3 sm:top-4 sm:right-4 z-10 p-2 text-gray-400 hover:text-white hover:bg-gray-800/50 rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <X size={20} />
           </button>
 
           {/* Content */}
-          <div className="relative p-8">
+          <div className="relative p-6 sm:p-8">
             {/* Icon */}
-            <div className="flex justify-center mb-6">
+            <div className="flex justify-center mb-5 sm:mb-6">
               <div className="relative">
-                <div className="w-20 h-20 bg-gradient-to-br from-[#1E1B4B] to-[#2D1B69] rounded-2xl flex items-center justify-center shadow-lg shadow-[#1E1B4B]/50">
-                  <ShieldCheck size={40} className="text-white" strokeWidth={2} />
+                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-[#1E1B4B] to-[#2D1B69] rounded-2xl flex items-center justify-center shadow-lg shadow-[#1E1B4B]/50">
+                  <ShieldCheck size={32} className="sm:w-10 sm:h-10 text-white" strokeWidth={2} />
                 </div>
                 {/* Pulsing rings */}
                 <div className="absolute inset-0 border-2 border-[#1E1B4B]/50 rounded-2xl animate-ping-slow" />
@@ -60,41 +61,41 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
             </div>
 
             {/* Heading */}
-            <div className="text-center mb-8">
-              <h2 className="text-2xl font-bold text-white mb-2">
+            <div className="text-center mb-6 sm:mb-8">
+              <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">
                 Welcome to <span className="bg-gradient-to-r from-[#1E1B4B] via-[#2D1B69] to-[#4C1D95] bg-clip-text text-transparent">StoreRadar</span>
               </h2>
-              <p className="text-gray-400 text-sm">
+              <p className="text-gray-400 text-xs sm:text-sm px-2">
                 Sign in to access your supplier database, legit checks, and flip lists
               </p>
             </div>
 
             {/* Features List */}
-            <div className="space-y-3 mb-8 bg-gray-900/50 border border-gray-800 rounded-xl p-4">
-              <div className="flex items-start gap-3">
-                <div className="mt-1 flex-shrink-0">
+            <div className="space-y-2.5 sm:space-y-3 mb-6 sm:mb-8 bg-gray-900/50 border border-gray-800 rounded-xl p-3 sm:p-4">
+              <div className="flex items-start gap-2.5 sm:gap-3">
+                <div className="mt-0.5 sm:mt-1 flex-shrink-0">
                   <Zap size={16} className="text-[#8B5CF6]" />
                 </div>
                 <div>
-                  <p className="text-white text-sm font-medium">Instant Access</p>
+                  <p className="text-white text-xs sm:text-sm font-medium">Instant Access</p>
                   <p className="text-gray-400 text-xs">View purchased products immediately</p>
                 </div>
               </div>
-              <div className="flex items-start gap-3">
-                <div className="mt-1 flex-shrink-0">
+              <div className="flex items-start gap-2.5 sm:gap-3">
+                <div className="mt-0.5 sm:mt-1 flex-shrink-0">
                   <ShieldCheck size={16} className="text-[#8B5CF6]" />
                 </div>
                 <div>
-                  <p className="text-white text-sm font-medium">Secure & Private</p>
+                  <p className="text-white text-xs sm:text-sm font-medium">Secure & Private</p>
                   <p className="text-gray-400 text-xs">Your data is encrypted and protected</p>
                 </div>
               </div>
-              <div className="flex items-start gap-3">
-                <div className="mt-1 flex-shrink-0">
+              <div className="flex items-start gap-2.5 sm:gap-3">
+                <div className="mt-0.5 sm:mt-1 flex-shrink-0">
                   <Chrome size={16} className="text-[#8B5CF6]" />
                 </div>
                 <div>
-                  <p className="text-white text-sm font-medium">One-Click Login</p>
+                  <p className="text-white text-xs sm:text-sm font-medium">One-Click Login</p>
                   <p className="text-gray-400 text-xs">No password to remember</p>
                 </div>
               </div>
@@ -104,20 +105,20 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
             <button
               onClick={(window as any).handleGoogleAuth}
               disabled={isLoading}
-              className="group relative w-full bg-white hover:bg-gray-50 text-black font-bold py-4 px-6 rounded-xl transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed overflow-hidden shadow-lg hover:shadow-xl"
+              className="group relative w-full bg-white hover:bg-gray-50 text-black font-bold py-3.5 sm:py-4 px-5 sm:px-6 rounded-xl transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed overflow-hidden shadow-lg hover:shadow-xl text-sm sm:text-base"
             >
               {/* Button shine effect */}
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
               
-              <div className="relative flex items-center justify-center gap-3">
+              <div className="relative flex items-center justify-center gap-2.5 sm:gap-3">
                 {isLoading ? (
                   <>
-                    <Loader2 size={20} className="animate-spin" />
+                    <Loader2 size={18} className="sm:w-5 sm:h-5 animate-spin" />
                     <span>Connecting...</span>
                   </>
                 ) : (
                   <>
-                    <svg viewBox="0 0 24 24" width="20" height="20">
+                    <svg viewBox="0 0 24 24" width="18" height="18" className="sm:w-5 sm:h-5">
                       <path
                         fill="#4285F4"
                         d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
@@ -136,14 +137,14 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
                       />
                     </svg>
                     <span>Continue with Google</span>
-                    <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight size={16} className="sm:w-[18px] sm:h-[18px] group-hover:translate-x-1 transition-transform" />
                   </>
                 )}
               </div>
             </button>
 
             {/* Footer */}
-            <p className="text-center text-xs text-gray-500 mt-6">
+            <p className="text-center text-[10px] sm:text-xs text-gray-500 mt-5 sm:mt-6 px-2">
               By continuing, you agree to FlipKit&#39;s{' '}
               <a href="#" className="text-[#8B5CF6] hover:text-[#A78BFA] transition-colors">
                 Terms of Service
