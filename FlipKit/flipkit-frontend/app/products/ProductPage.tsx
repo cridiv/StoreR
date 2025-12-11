@@ -199,8 +199,8 @@ const ProductPage: React.FC = () => {
 
   useEffect(() => {
     const endpoint = selectedCategory === "all" 
-      ? "http://localhost:8000/products/"
-      : `http://localhost:8000/products/${selectedCategory}`;
+      ? "https://storer-1.onrender.com/products/"
+      : `https://storer-1.onrender.com/products/${selectedCategory}`;
     
     fetch(endpoint)
       .then((res) => res.json())
@@ -228,8 +228,8 @@ const ProductPage: React.FC = () => {
   const handleRefresh = () => {
     setIsRefreshing(true);
     const endpoint = selectedCategory === "all" 
-      ? "http://localhost:8000/products"
-      : `http://localhost:8000/products/${selectedCategory}`;
+      ? "https://storer-1.onrender.com/products"
+      : `https://storer-1.onrender.com/products/${selectedCategory}`;
     
     fetch(endpoint)
       .then((res) => res.json())
