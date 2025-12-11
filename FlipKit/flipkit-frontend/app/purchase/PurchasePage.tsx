@@ -1,8 +1,23 @@
 "use client";
 import React, { useMemo, useState } from "react";
-import Navbar from "./components/Navbar";
+import dynamic from "next/dynamic";
 import PurchaseCard, { Purchase } from "./components/PurchaseCard";
-import Banner from "./components/Banner";
+
+
+const Banner = dynamic(() => import("./components/Banner"), {
+  ssr: false,
+  loading: () => (
+    <div style={{ 
+      height: "200px", 
+      background: "linear-gradient(to bottom right, #111827, #000000, #111827)",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center"
+    }}>
+      <div style={{ color: "#9CA3AF" }}>Loading...</div>
+    </div>
+  ),
+});
 
 /* Mock data */
 const mockPurchases: Purchase[] = [

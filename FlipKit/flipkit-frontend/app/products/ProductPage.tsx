@@ -1,9 +1,24 @@
 "use client";
 import React, { useEffect, useState, useMemo } from "react";
+import dynamic from "next/dynamic";
 import ProductCard from "./components/ProductCard";
-import Banner from "./components/Banner";
 
-// Icons (inline SVG components)
+
+const Banner = dynamic(() => import("./components/Banner"), {
+  ssr: false,
+  loading: () => (
+    <div style={{ 
+      height: "200px", 
+      background: "linear-gradient(to bottom right, #111827, #000000, #111827)",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center"
+    }}>
+      <div style={{ color: "#9CA3AF" }}>Loading...</div>
+    </div>
+  ),
+});
+
 const SearchIcon = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
     <circle cx="11" cy="11" r="8"/>

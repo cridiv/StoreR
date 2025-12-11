@@ -1,7 +1,23 @@
 'use client'
 import { useEffect, useState } from "react";
+import dynamic from 'next/dynamic';
 import SupplierCard from "./components/SupplierCard";
-import Banner from "./components/Banner";
+
+
+const Banner = dynamic(() => import("./components/Banner"), {
+  ssr: false,
+  loading: () => (
+    <div style={{ 
+      height: "200px", 
+      background: "linear-gradient(to bottom right, #111827, #000000, #111827)",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center"
+    }}>
+      <div style={{ color: "#9CA3AF" }}>Loading...</div>
+    </div>
+  ),
+});
 
 type Supplier = {
   id: string;

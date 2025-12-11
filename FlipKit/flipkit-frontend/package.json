@@ -18,12 +18,12 @@
     "next": "16.0.4",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-paystack": "^6.0.0",
-    "react-router-dom": "^6.30.2"
+    "react-paystack": "^6.0.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
+    "@types/paystack__inline-js": "^1.0.2",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",

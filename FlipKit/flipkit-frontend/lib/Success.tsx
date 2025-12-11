@@ -1,20 +1,21 @@
+'use client'
 import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 export default function Success() {
-  const navigate = useNavigate();
+  const router = useRouter();
+  const searchParams = useSearchParams();
 
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const token = params.get("token");
+    const token = searchParams.get("token");
 
     if (token) {
       localStorage.setItem("auth_token", token);
-      navigate("/dashboard");
+      router.push("/dashboard");
     } else {
-      navigate("/login");
+      router.push("/login");
     }
-  }, []);
+  }, [searchParams, router]);
 
   return <div>Redirecting...</div>;
 }

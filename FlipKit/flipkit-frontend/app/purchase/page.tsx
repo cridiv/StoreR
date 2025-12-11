@@ -1,11 +1,11 @@
 'use client'
 import AuthGuard from "../components/AuthGuard";
-import ProductPage from "./ProductPage";
+import PurchasePage from "./PurchasePage";
 
-export default function Products() {
+export default function Purchase() {
   return (
     <AuthGuard>
-      <ProductPage />
+      <PurchasePage />
     </AuthGuard>
   );
 }

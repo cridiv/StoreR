@@ -1,5 +1,10 @@
+import { Suspense } from "react";
 import SupplierDetail from "./SupplierDetail";
 
 export default function Details() {
-    return <SupplierDetail />;
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <SupplierDetail />
+    </Suspense>
+  );
 }

@@ -1,8 +1,10 @@
 "use client";
+export const dynamic = "force-dynamic";
 import React, { useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import CheckoutButton from "../../components/Payment";
-import { useExchangeRate } from "@/hooks/useExchangeRate";
+import ExchangeRateClient from "./ExchangeRateClient";
+
 
 /* Icons */
 const ArrowLeftIcon = () => (
@@ -65,34 +67,28 @@ export default function SupplierDetails() {
   const [username, setUsername] = useState<string>("");
   const [agreedToTerms, setAgreedToTerms] = useState<boolean>(false);
   const [cartCount] = useState<number>(0);
+  const [exchangeRate, setExchangeRate] = useState<number>(1500);
 
-  const exchangeRate = useExchangeRate(1500);
-  useEffect(() => {
-    if (!supplierId) {
-      return;
-    }
+useEffect(() => {
+    if (!supplierId) return;
 
     fetch(`https://storer-xd46.onrender.com/vendors/${supplierId}`)
       .then((res) => {
-        if (!res.ok) {
-          throw new Error('Vendor not found');
-        }
+        if (!res.ok) throw new Error("Vendor not found");
         return res.json();
       })
       .then((data) => {
-        console.log("vendor detail payload:", data);
         setSupplier(data);
         setLoading(false);
       })
-      .catch((err) => {
-        console.error(err);
-        setLoading(false);
-      });
+      .catch(() => setLoading(false));
   }, [supplierId]);
+
 
   if (loading) {
     return (
       <div style={{ minHeight: "100vh", backgroundColor: "#060606", color: "#fff", display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <ExchangeRateClient onRate={setExchangeRate} />
         <div style={{ fontSize: 18, color: "#9CA3AF" }}>Loading...</div>
       </div>
     );
