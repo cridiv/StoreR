@@ -64,6 +64,18 @@ interface SidebarProps {
 
 const Sidebar: React.FC<SidebarProps> = ({ isOpen, onToggle, selectedItem, setSelectedItem }) => {
   const [showAccountModal, setShowAccountModal] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Detect mobile screen size
+  React.useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const topMenuItems = [
     { id: "products", name: "Products", icon: PackageIcon, path: "/products" },
@@ -76,77 +88,116 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onToggle, selectedItem, setSe
     { id: "account", name: "Account", icon: UserIcon },
   ];
 
-const handleMenuClick = (itemId: string) => {
-  if (itemId === "account") {
-    setShowAccountModal(true);
-    return;
-  }
+  const handleMenuClick = (itemId: string) => {
+    if (itemId === "account") {
+      setShowAccountModal(true);
+      return;
+    }
 
-  setSelectedItem(itemId);
-};
+    setSelectedItem(itemId);
+  };
 
   return (
     <>
+      {/* Mobile overlay */}
+      {isMobile && isOpen && (
+        <div
+          onClick={onToggle}
+          style={{
+            position: "fixed",
+            inset: 0,
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
+            zIndex: 40,
+          }}
+        />
+      )}
+
+      {/* Mobile toggle button (only visible when sidebar is closed) */}
+      {isMobile && !isOpen && (
+        <button
+          onClick={onToggle}
+          style={{
+            position: "fixed",
+            left: "16px",
+            top: "16px",
+            zIndex: 60,
+            background: "black",
+            border: "1px solid rgba(75, 85, 99, 0.5)",
+            borderRadius: "8px",
+            padding: "12px",
+            color: "#fff",
+            cursor: "pointer",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+          aria-label="Open sidebar"
+        >
+          <ChevronRightIcon />
+        </button>
+      )}
+
       <div
         style={{
-          width: isOpen ? "256px" : "80px",
+          width: isMobile ? "256px" : (isOpen ? "256px" : "80px"),
           height: "100vh",
           background: "black",
           borderRight: "1px solid rgba(75, 85, 99, 0.3)",
           display: "flex",
           flexDirection: "column",
-          transition: "width 0.3s ease",
+          transition: "transform 0.3s ease, width 0.3s ease",
           position: "fixed",
           left: 0,
           top: 0,
           zIndex: 50,
+          transform: isMobile && !isOpen ? "translateX(-100%)" : "translateX(0)",
         }}
       >
         {/* Toggle Button */}
-<div
-  style={{
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    padding: "16px",
-  }}
->
-  <div style={{ minWidth: 0 }}>
-    {isOpen && (
-      <span
-        style={{
-          color: "#fff",
-          fontWeight: 600,
-          fontSize: "18px",
-          lineHeight: 1,
-          whiteSpace: "nowrap",
-        }}
-      >
-        StoreRadar
-      </span>
-    )}
-  </div>
-  <button
-    onClick={onToggle}
-    style={{
-      color: "#fff",
-      background: "transparent",
-      border: "none",
-      padding: "8px",
-      borderRadius: "6px",
-      cursor: "pointer",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-    }}
-    onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.1)")}
-    onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "transparent")}
-    aria-label="Toggle sidebar"
-    title="Toggle sidebar"
-  >
-    {isOpen ? <ChevronLeftIcon /> : <ChevronRightIcon />}
-  </button>
-</div>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            padding: "16px",
+          }}
+        >
+          <div style={{ minWidth: 0 }}>
+            {(isOpen || isMobile) && (
+              <span
+                style={{
+                  color: "#fff",
+                  fontWeight: 600,
+                  fontSize: "18px",
+                  lineHeight: 1,
+                  whiteSpace: "nowrap",
+                }}
+              >
+                StoreRadar
+              </span>
+            )}
+          </div>
+          <button
+            onClick={onToggle}
+            style={{
+              color: "#fff",
+              background: "transparent",
+              border: "none",
+              padding: "8px",
+              borderRadius: "6px",
+              cursor: "pointer",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.1)")}
+            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "transparent")}
+            aria-label="Toggle sidebar"
+            title="Toggle sidebar"
+          >
+            {(isOpen || isMobile) ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+          </button>
+        </div>
 
         <div style={{ borderTop: "1px solid rgba(75, 85, 99, 0.3)", marginBottom: "16px" }} />
 
@@ -163,7 +214,7 @@ const handleMenuClick = (itemId: string) => {
                   width: "100%",
                   display: "flex",
                   alignItems: "center",
-                  justifyContent: isOpen ? "flex-start" : "center",
+                  justifyContent: (isOpen || isMobile) ? "flex-start" : "center",
                   gap: "12px",
                   padding: "12px 16px",
                   marginBottom: "8px",
@@ -183,7 +234,7 @@ const handleMenuClick = (itemId: string) => {
                 }}
               >
                 <Icon />
-                {isOpen && <span>{item.name}</span>}
+                {(isOpen || isMobile) && <span>{item.name}</span>}
               </button>
             );
           })}
@@ -204,7 +255,7 @@ const handleMenuClick = (itemId: string) => {
                   width: "100%",
                   display: "flex",
                   alignItems: "center",
-                  justifyContent: isOpen ? "flex-start" : "center",
+                  justifyContent: (isOpen || isMobile) ? "flex-start" : "center",
                   gap: "12px",
                   padding: "12px 16px",
                   marginBottom: "8px",
@@ -224,7 +275,7 @@ const handleMenuClick = (itemId: string) => {
                 }}
               >
                 <Icon />
-                {isOpen && <span>{item.name}</span>}
+                {(isOpen || isMobile) && <span>{item.name}</span>}
               </button>
             );
           })}
