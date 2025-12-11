@@ -44,7 +44,7 @@ export class AuthController {
     const token = this.authService.generateJwt({ id: user.id, email: user.email as string });
     const frontendURL =
       this.config.get<string>('FRONTEND_URL') ??
-      'http://localhost:3000/dashboard';
+      'https://storer-wheat.vercel.app/dashboard;
     return res.redirect(`${frontendURL}?token=${token}`);
   }
   
