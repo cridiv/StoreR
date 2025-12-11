@@ -1,0 +1,6 @@
+fastapi
+uvicorn
+python-dotenv
+playwright.async_api
+bs4
+asyncio
