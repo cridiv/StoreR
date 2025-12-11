@@ -1,6 +1,6 @@
 fastapi
 uvicorn
 python-dotenv
-playwright.async_api
+playwright
 bs4
 asyncio
