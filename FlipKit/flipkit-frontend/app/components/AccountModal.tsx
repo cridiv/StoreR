@@ -166,6 +166,7 @@ const AccountModal: React.FC<AccountModalProps> = ({ isOpen, onClose }) => {
         alignItems: "center",
         justifyContent: "center",
         zIndex: 999,
+        padding: "16px",
       }}
     >
       <div
@@ -177,7 +178,9 @@ const AccountModal: React.FC<AccountModalProps> = ({ isOpen, onClose }) => {
           border: "1px solid rgba(75, 85, 99, 0.3)",
           width: "100%",
           maxWidth: "448px",
-          padding: "24px",
+          padding: "20px",
+          maxHeight: "calc(100vh - 32px)",
+          overflowY: "auto",
         }}
       >
         {/* Header */}
@@ -186,10 +189,10 @@ const AccountModal: React.FC<AccountModalProps> = ({ isOpen, onClose }) => {
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
-            marginBottom: "24px",
+            marginBottom: "20px",
           }}
         >
-          <h2 style={{ fontSize: "20px", fontWeight: "600", color: "#fff" }}>
+          <h2 style={{ fontSize: "18px", fontWeight: "600", color: "#fff" }}>
             Account
           </h2>
           <button
@@ -300,8 +303,8 @@ const AccountModal: React.FC<AccountModalProps> = ({ isOpen, onClose }) => {
                     src={userInfo.profileImageUrl}
                     alt={userInfo.name}
                     style={{
-                      width: "96px",
-                      height: "96px",
+                      width: "80px",
+                      height: "80px",
                       borderRadius: "50%",
                       objectFit: "cover",
                       border: "2px solid rgba(99, 102, 241, 0.5)",
@@ -313,8 +316,8 @@ const AccountModal: React.FC<AccountModalProps> = ({ isOpen, onClose }) => {
                     src={generateAvatarUrl(userInfo.name)}
                     alt={userInfo.name}
                     style={{
-                      width: "96px",
-                      height: "96px",
+                      width: "80px",
+                      height: "80px",
                       borderRadius: "50%",
                       objectFit: "cover",
                       border: "2px solid rgba(99, 102, 241, 0.5)",
@@ -324,15 +327,15 @@ const AccountModal: React.FC<AccountModalProps> = ({ isOpen, onClose }) => {
                 ) : (
                   <div
                     style={{
-                      width: "96px",
-                      height: "96px",
+                      width: "80px",
+                      height: "80px",
                       borderRadius: "50%",
                       background: "linear-gradient(135deg, #6366f1, #8b5cf6, #a855f7)",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
                       color: "#fff",
-                      fontSize: "32px",
+                      fontSize: "28px",
                       fontWeight: "600",
                       border: "2px solid rgba(99, 102, 241, 0.5)",
                     }}
@@ -342,10 +345,10 @@ const AccountModal: React.FC<AccountModalProps> = ({ isOpen, onClose }) => {
                 )}
               </div>
 
-              <div style={{ marginTop: "16px", textAlign: "center" }}>
+              <div style={{ marginTop: "12px", textAlign: "center" }}>
                 <h3
                   style={{
-                    fontSize: "18px",
+                    fontSize: "16px",
                     fontWeight: "600",
                     color: "#fff",
                   }}
@@ -356,7 +359,7 @@ const AccountModal: React.FC<AccountModalProps> = ({ isOpen, onClose }) => {
             </div>
 
             {/* User Info Cards */}
-            <div style={{ display: "flex", flexDirection: "column", gap: "16px", marginBottom: "24px" }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: "12px", marginBottom: "20px" }}>
               {/* Email */}
               <div
                 style={{
